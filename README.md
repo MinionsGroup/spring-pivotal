@@ -11,7 +11,7 @@ The required configuration for this project is the following:
     -Java JDK (jdk1.8.0_171).
     -IntelliJ idea IDE.
     -Download Gradle 3.5 or higher: https://gradle.org/gradle-download/
-    -Clone/download the project from GitHub repository: https://github.com/AT-04/pivotal-tests.git
+    -Clone/download the project from GitHub repository: https://github.com/MinionsGroup/spring-pivotal.git
 
 ### Installing
 
