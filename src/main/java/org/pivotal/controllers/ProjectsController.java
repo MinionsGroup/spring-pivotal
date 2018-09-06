@@ -14,17 +14,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * RestController.
+ */
 @RestController
 public class ProjectsController {
 
     @Autowired
     private ProjectsServices projectService;
 
+    /**
+     * @return Response.
+     */
     @RequestMapping(method = RequestMethod.GET, value = Paths.PATH_PROJECTS)
     public ResponseEntity<?> getAllProjects() {
         return ResponseEntity.status(HttpStatus.OK).body(projectService.getAllProject());
     }
 
+    /**
+     * @param id Project id.
+     * @return Response.
+     */
     @RequestMapping(method = RequestMethod.GET, value = Paths.PATH_PROJECTS_WITH_ID)
     public ResponseEntity<?> getProjectById(@PathVariable String id) {
         if (projectService.getProjectById(id) == null) {
@@ -33,11 +43,20 @@ public class ProjectsController {
         return ResponseEntity.status(HttpStatus.OK).body(projectService.getProjectById(id));
     }
 
+    /**
+     * @param project project.
+     * @return Response.
+     */
     @RequestMapping(method = RequestMethod.POST, value = Paths.PATH_PROJECTS)
     public ResponseEntity<?> postProject(@RequestBody Project project) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(projectService.postProject(project));
+        return ResponseEntity.status(HttpStatus.CREATED).body(projectService.addProject(project));
     }
 
+    /**
+     * @param project project.
+     * @param id      Project id.
+     * @return Response.
+     */
     @RequestMapping(method = RequestMethod.PUT, value = Paths.PATH_PROJECTS_WITH_ID)
     public ResponseEntity<?> updateProject(@RequestBody Project project, @PathVariable String id) {
         Message message = projectService.updateProject(project, id);
@@ -47,6 +66,10 @@ public class ProjectsController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
     }
 
+    /**
+     * @param id Project id.
+     * @return Response.
+     */
     @RequestMapping(method = RequestMethod.DELETE, value = Paths.PATH_PROJECTS_WITH_ID)
     public ResponseEntity<?> deleteProject(@PathVariable String id) {
         Message message = projectService.deleteProject(id);

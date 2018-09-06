@@ -9,6 +9,9 @@ import org.pivotal.support.Message;
 import org.pivotal.support.MessageManager;
 import org.springframework.stereotype.Service;
 
+/**
+ * Projects Services.
+ */
 @Service
 public class ProjectsServices {
 
@@ -16,10 +19,17 @@ public class ProjectsServices {
 
     private List<Project> projectList = new ArrayList<>();
 
+    /**
+     * @return projectList.
+     */
     public List<Project> getAllProject() {
         return projectList;
     }
 
+    /**
+     * @param id Project id.
+     * @return Project.
+     */
     public Project getProjectById(String id) {
         for (Project project : projectList) {
             if (project.getId().equals(id)) {
@@ -29,11 +39,20 @@ public class ProjectsServices {
         return null;
     }
 
-    public Message postProject(Project project) {
+    /**
+     * @param project Project.
+     * @return Message.
+     */
+    public Message addProject(Project project) {
         projectList.add(project);
         return MessageManager.createdSuccessfully(ENTITY);
     }
 
+    /**
+     * @param project Project.
+     * @param id      Project id.
+     * @return Message.
+     */
     public Message updateProject(Project project, String id) {
         for (Project currentProject : projectList) {
             if (currentProject.getId().equals(id)) {
@@ -45,6 +64,10 @@ public class ProjectsServices {
         return MessageManager.entityDoesNotExist(ENTITY);
     }
 
+    /**
+     * @param id Project id.
+     * @return Message.
+     */
     public Message deleteProject(String id) {
         for (int i = 0; i < projectList.size(); i++) {
             if (projectList.get(i).getId().equals(id)) {

@@ -1,23 +1,38 @@
 package org.pivotal.models;
 
+/**
+ * Class.
+ */
 public class Project {
 
     private String id;
 
     private String name;
 
+    /**
+     * @return id.
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * @param id id.
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * @return Name.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name Name.
+     */
     public void setName(String name) {
         this.name = name;
     }
