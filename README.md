@@ -36,7 +36,6 @@ After that you should execute: src/main/java/org/pivotal/Application.java.
     -GET: http://localhost:8080/api/v1/projects/
     -GET: http://localhost:8080/api/v1/projects/{id}
     -POST: http://localhost:8080/api/v1/projects/
-    -with this body:
     -    {
     -        "id": "1",
     -        "name": "project1"
@@ -46,8 +45,7 @@ After that you should execute: src/main/java/org/pivotal/Application.java.
     -        "id": "1",
     -        "name": "project1"
     -    }
--DELETE: http://localhost:8080/api/v1/projects/{id}
-
+    -DELETE: http://localhost:8080/api/v1/projects/{id}
 
 ## Contributing
 
