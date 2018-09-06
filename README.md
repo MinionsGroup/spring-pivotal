@@ -33,19 +33,19 @@ After that you should execute: src/main/java/org/pivotal/Application.java.
 ## End Points
 
 ### Projects End Points
--GET: http://localhost:8080/api/v1/projects/
--GET: http://localhost:8080/api/v1/projects/{id}
--POST: http://localhost:8080/api/v1/projects/
--with this body:
--    {
--        "id": "1",
--        "name": "project1"
--    }
--PUT : http://localhost:8080/api/v1/projects/{id}
--    {
--        "id": "1",
--        "name": "project1"
--    }
+    -GET: http://localhost:8080/api/v1/projects/
+    -GET: http://localhost:8080/api/v1/projects/{id}
+    -POST: http://localhost:8080/api/v1/projects/
+    -with this body:
+    -    {
+    -        "id": "1",
+    -        "name": "project1"
+    -    }
+    -PUT : http://localhost:8080/api/v1/projects/{id}
+    -    {
+    -        "id": "1",
+    -        "name": "project1"
+    -    }
 -DELETE: http://localhost:8080/api/v1/projects/{id}
 
 
@@ -56,5 +56,3 @@ Current contributors:
     -Abel Barrientos (Sphinix27) - https://github.com/Sphinix27
     -Richard Severiche (RichardSeverich) - https://github.com/RichardSeverich
     -Daniel Montecinos (daniel-m10) - https://github.com/daniel-m10
-
-
