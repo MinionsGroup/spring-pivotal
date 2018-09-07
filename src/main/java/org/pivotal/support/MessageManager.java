@@ -1,24 +1,48 @@
 package org.pivotal.support;
 
+/**
+ * Class.
+ */
 public final class MessageManager {
 
+    /**
+     * Constructor.
+     */
+    private MessageManager() {
+    }
 
-    public static Message createdSuccessfully(String entity) {
+    /**
+     * @param entity entity.
+     * @return Message.
+     */
+    public static Message createdSuccessfully(final String entity) {
         String message = String.format("The %s was created", entity);
         return new Message("201", message);
     }
 
-    public static Message updatedSuccessfully(String entity) {
+    /**
+     * @param entity entity.
+     * @return Message.
+     */
+    public static Message updatedSuccessfully(final String entity) {
         String message = String.format("The %s was updated", entity);
         return new Message("202", message);
     }
 
-    public static Message deletedSuccessfully(String entity) {
+    /**
+     * @param entity entity.
+     * @return Message.
+     */
+    public static Message deletedSuccessfully(final String entity) {
         String message = String.format("The %s was deleted", entity);
         return new Message("200", message);
     }
 
-    public static Message entityDoesNotExist(String entity) {
+    /**
+     * @param entity entity.
+     * @return Message.
+     */
+    public static Message entityDoesNotExist(final String entity) {
         String message = String.format("The %s doesn't exist", entity);
         return new Message("404", message);
     }

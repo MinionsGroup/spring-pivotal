@@ -8,39 +8,63 @@ import java.time.Instant;
 public class Message {
 
     private String code;
-    private String message;
+    private String textMessage;
     private long unixTimestamp;
 
+    /**
+     * Constructor.
+     */
     public Message() {
-
     }
 
-    public Message(String code, String message) {
+    /**
+     * @param code        code.
+     * @param textMessage textMessage.
+     */
+    Message(final String code, final String textMessage) {
         this.code = code;
-        this.message = message;
+        this.textMessage = textMessage;
         this.unixTimestamp = Instant.now().getEpochSecond();
     }
 
-    public void setCode(String code) {
+    /**
+     * @param code code.
+     */
+    public void setCode(final String code) {
         this.code = code;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    /**
+     * @param textMessage textMessage.
+     */
+    public void setTextMessage(final String textMessage) {
+        this.textMessage = textMessage;
     }
 
+    /**
+     * @return unixTimestamp.
+     */
     public long getUnixTimestamp() {
         return unixTimestamp;
     }
 
-    public void setUnixTimestamp(long unixTimestamp) {
+    /**
+     * @param unixTimestamp setUnixTimestamp.
+     */
+    public void setUnixTimestamp(final long unixTimestamp) {
         this.unixTimestamp = unixTimestamp;
     }
 
-    public String getMessage() {
-        return message;
+    /**
+     * @return textMessage.
+     */
+    public String getTextMessage() {
+        return textMessage;
     }
 
+    /**
+     * @return code.
+     */
     public String getCode() {
         return code;
     }

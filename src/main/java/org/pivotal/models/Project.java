@@ -19,7 +19,7 @@ public class Project {
     /**
      * @param id id.
      */
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
 
@@ -33,7 +33,7 @@ public class Project {
     /**
      * @param name Name.
      */
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 

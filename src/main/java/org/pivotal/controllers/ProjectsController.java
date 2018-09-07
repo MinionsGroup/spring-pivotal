@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * RestController.
  */
@@ -27,7 +29,7 @@ public class ProjectsController {
      * @return Response.
      */
     @RequestMapping(method = RequestMethod.GET, value = Paths.PATH_PROJECTS)
-    public ResponseEntity<?> getAllProjects() {
+    public ResponseEntity<List<Project>> getAllProjects() {
         return ResponseEntity.status(HttpStatus.OK).body(projectService.getAllProject());
     }
 
@@ -36,7 +38,7 @@ public class ProjectsController {
      * @return Response.
      */
     @RequestMapping(method = RequestMethod.GET, value = Paths.PATH_PROJECTS_WITH_ID)
-    public ResponseEntity<?> getProjectById(@PathVariable String id) {
+    public ResponseEntity<?> getProjectById(final @PathVariable String id) {
         if (projectService.getProjectById(id) == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(MessageManager.entityDoesNotExist("user"));
         }
@@ -48,7 +50,7 @@ public class ProjectsController {
      * @return Response.
      */
     @RequestMapping(method = RequestMethod.POST, value = Paths.PATH_PROJECTS)
-    public ResponseEntity<?> postProject(@RequestBody Project project) {
+    public ResponseEntity<Message> postProject(final @RequestBody Project project) {
         return ResponseEntity.status(HttpStatus.CREATED).body(projectService.addProject(project));
     }
 
@@ -58,7 +60,7 @@ public class ProjectsController {
      * @return Response.
      */
     @RequestMapping(method = RequestMethod.PUT, value = Paths.PATH_PROJECTS_WITH_ID)
-    public ResponseEntity<?> updateProject(@RequestBody Project project, @PathVariable String id) {
+    public ResponseEntity<Message> updateProject(final @RequestBody Project project, final @PathVariable String id) {
         Message message = projectService.updateProject(project, id);
         if (message.getCode().equals("202")) {
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(message);
@@ -71,7 +73,7 @@ public class ProjectsController {
      * @return Response.
      */
     @RequestMapping(method = RequestMethod.DELETE, value = Paths.PATH_PROJECTS_WITH_ID)
-    public ResponseEntity<?> deleteProject(@PathVariable String id) {
+    public ResponseEntity<Message> deleteProject(final @PathVariable String id) {
         Message message = projectService.deleteProject(id);
         if (message.getCode().equals("200")) {
             return ResponseEntity.status(HttpStatus.OK).body(message);

@@ -30,7 +30,7 @@ public class ProjectsServices {
      * @param id Project id.
      * @return Project.
      */
-    public Project getProjectById(String id) {
+    public Project getProjectById(final String id) {
         for (Project project : projectList) {
             if (project.getId().equals(id)) {
                 return project;
@@ -43,7 +43,7 @@ public class ProjectsServices {
      * @param project Project.
      * @return Message.
      */
-    public Message addProject(Project project) {
+    public Message addProject(final Project project) {
         projectList.add(project);
         return MessageManager.createdSuccessfully(ENTITY);
     }
@@ -53,7 +53,7 @@ public class ProjectsServices {
      * @param id      Project id.
      * @return Message.
      */
-    public Message updateProject(Project project, String id) {
+    public Message updateProject(final Project project, final String id) {
         for (Project currentProject : projectList) {
             if (currentProject.getId().equals(id)) {
                 currentProject.setId(project.getId());
@@ -68,7 +68,7 @@ public class ProjectsServices {
      * @param id Project id.
      * @return Message.
      */
-    public Message deleteProject(String id) {
+    public Message deleteProject(final String id) {
         for (int i = 0; i < projectList.size(); i++) {
             if (projectList.get(i).getId().equals(id)) {
                 projectList.remove(i);
